@@ -1,57 +1,42 @@
 from tkinter import *
 import random
 
-def random_y_and_x():
-    nao.destroy
-    y_nao = random.randint(50, 250)
-    x_nao = random.randint(50, 330)
-    nao.place(x=x_nao,
-        y=y_nao)
+class testeIdiota():
+        def __init__(self):
 
-def pressed_sim():
-    wind_prin.destroy()
-    wind_sim= Tk()
-    wind_sim.geometry('300x200')
-    wind_sim.resizable(0, 0)
+                self.janelaPrincipal = Tk()
+                self.janelaPrincipal.geometry('400x300')
+                self.janelaPrincipal.resizable(0, 0)
+                self.janelaPrincipal.config(background='gray')
 
-    label = Label(wind_sim, text=':D Eu já sabia, OTÁRIO :D')
+                self.labelDaJanelaPrincipal = Label(self.janelaPrincipal, text='Você é um idiota?\nTESTE AGORA', background='gray')
+                self.labelDaJanelaPrincipal.pack()
 
-    label.place(x=85,
-                y=70)
+                self.botaoSim = Button(text='Sim', command=self.funcaoDoBotaoSim, width=10)
+                self.botaoSim.place(x=100, y=250)
 
-    wind_sim.mainloop
+                self.botaoNao = Button(text='Não', command=self.posicaoAleatoriaDoBotaoNao, width=10)
+                self.botaoNao.place(x=250, y=250)
 
+                self.janelaPrincipal.mainloop()
 
-wind_prin = Tk()
+        def posicaoAleatoriaDoBotaoNao(self):
 
-# config da janela
-wind_prin.geometry('400x300')
+                self.botaoNao.destroy
+                self.y_nao = random.randint(50, 250)
+                self.x_nao = random.randint(50, 330)
+                self.botaoNao.place(x=self.x_nao, y=self.y_nao)
+        
+        def funcaoDoBotaoSim(self):
+                self.janelaPrincipal.destroy()
 
-wind_prin.resizable(0, 0)
+                self.janelaDoBotaoSim= Tk()
+                self.janelaDoBotaoSim.geometry('300x200')
+                self.janelaDoBotaoSim.resizable(0, 0)
 
+                self.labelDaJanelaDoBotaoSim = Label(self.janelaDoBotaoSim, text=':D Eu já sabia, OTÁRIO :D')
+                self.labelDaJanelaDoBotaoSim.place(x=85, y=70)
 
-# label
-label = Label(text='Você é um idiota?',)
+                self.janelaDoBotaoSim.mainloop 
 
-
-# botoes
-sim = Button(text='Sim', command=pressed_sim,
-            width=10)
-
-nao = Button(text='Não', command=random_y_and_x,
-            width=10)
-
-x_nao = 250
-y_nao = 250
-
-
-# .pack, .place
-label.pack()
-sim.place(x=100,
-        y=250)
-
-nao.place(x=x_nao,
-        y=y_nao)
-
-
-wind_prin.mainloop()
+testeIdiota()
